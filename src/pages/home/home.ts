@@ -6,10 +6,13 @@ import { MiapiProvider } from '../../providers/miapi/miapi'
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+elementos:any
   constructor(public navCtrl: NavController, public miapi: MiapiProvider) {
   miapi.getArticulos()
-    .subscribe((out)=>{console.log(out)})
+    .subscribe((out)=>{
+      this.elementos = out["data"]
+      console.log(this.elementos)
+    })
   }
 
 }
